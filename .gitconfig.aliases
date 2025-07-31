@@ -5,3 +5,40 @@
   	| GREP_COLORS=\"mt=1;37;41\" grep --color=always -E \"$1|^(.*) Commit|^Author|^Date|^@@\" \
   	| sed 's/>/\\n\\n>/'; \
     }; f"
+
+prettylist = "!echo '\
+	COMMIT INFO:\n\
+	  %H - Commit hash (full)\n\
+	  %h - Commit hash (abbrev)\n\
+	  %T - Tree hash (full)\n\
+	  %t - Tree hash (abbrev)\n\
+	  %P - Parent hashes (full)\n\
+	  %p - Parent hashes (abbrev)\n\
+	\nAUTHOR INFO:\n\
+	  %an - Author name\n\
+	  %ae - Author email\n\
+	  %ad - Author date (format depends on --date)\n\
+	  %ar - Author date, relative\n\
+	  %ai - Author date, ISO 8601\n\
+	\nCOMMITTER INFO:\n\
+	  %cn - Committer name\n\
+	  %ce - Committer email\n\
+	  %cd - Committer date\n\
+	  %cr - Committer date, relative\n\
+	\nREF / DECORATION:\n\
+	  %d - Ref names (decorations)\n\
+	  %D - Ref names (no parens)\n\
+	  %S - Reflog selector\n\
+	\nMESSAGE:\n\
+	  %s - Subject\n\
+	  %f - Sanitized subject\n\
+	  %b - Body\n\
+	  %B - Raw body\n\
+	\nEXTRAS:\n\
+	  %C(color) - Set color\n\
+	  %Creset - Reset color\n\
+	  %n - Newline\n\
+	  %x09 - Tab\n\
+	  %x20 - Space\n\
+	'"
+	
