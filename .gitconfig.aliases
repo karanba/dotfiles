@@ -1,0 +1,7 @@
+[alias]
+    find = "!f() { git -c color.ui=always log -p -G"$1" \
+	--pretty=format:\"%Cblue> Commit %Cblue%h <%an>, %ad%n \" \
+  	-- ${2:-.} \
+  	| GREP_COLORS=\"mt=1;37;41\" grep --color=always -E \"$1|^(.*) Commit|^Author|^Date|^@@\" \
+  	| sed 's/>/\\n\\n>/'; \
+    }; f"
