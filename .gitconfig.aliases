@@ -1,4 +1,6 @@
 [alias]
+    co = checkout
+
     find = "!f() { git -c color.ui=always log -p -G"$1" \
 	--pretty=format:\"%Cblue> Commit %Cblue%h <%an>, %ad%n \" \
   	-- ${2:-.} \
